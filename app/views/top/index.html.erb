@@ -3,7 +3,7 @@
         <div class="left">DIVE INTO CODE</div>
         
         <ul class="right">
-            <li><%= link_to "ログアウト", destroy_user_session_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: "delete" %></li>
             <li><%= link_to "お問い合わせ", inquiry_path %></li>
             <li><%= link_to "ブログ", blogs_path %></li>
         </ul>
