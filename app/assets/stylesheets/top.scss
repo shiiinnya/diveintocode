@@ -1,0 +1,55 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.body {
+    margin:0;
+    background-image:url("back.jpg");
+    background-size:cover;
+}
+.header {
+    background:gray;
+    width:100%;
+    height:50px;
+}
+
+.left {
+    color:white;
+    height:50px;
+    width:150px;
+    text-align:center;
+    font-weight:bold;
+    float:left;
+    line-height:50px;
+    margin-left:50px;
+}
+.right li {
+    color:white;
+    height:50px;
+    width:150px;
+    text-align:center;
+    font-weight:bold;
+    float:right;
+    list-style:none;
+    line-height:50px;
+}
+.right a {
+    text-decoration:none;
+    color:white;
+}
+.right {
+    padding:0;
+    margin:0;
+    margin-right:30px;
+}
+.top {
+    clear:both;
+}
+.top h2 {
+    color:white;
+    text-align:center;
+    margin-top:250px;
+}
+.top p {
+    color:white;
+    text-align:center;
+}

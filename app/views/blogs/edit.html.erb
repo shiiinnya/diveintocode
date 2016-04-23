@@ -1,0 +1,16 @@
+<h2>記事編集</h2>
+<%= form_for @blog do |f| %>
+    <table>
+        <tr>
+            <th><%= f.label "タイトル" %></th>
+            <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+            <th><%= f.label "内容" %></th>
+            <td><%= f.text_area :content %></td>
+        </tr>
+        <tr>
+            <td><%= f.submit "保存" %></td>
+        </tr>
+    </table>
+<% end %>

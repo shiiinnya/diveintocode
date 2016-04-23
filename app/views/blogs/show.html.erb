@@ -1,0 +1,15 @@
+<h2>記事詳細</h2>
+<table>
+    <tr>
+        <th>タイトル</th>
+        <td><%= @blog.title %></td>
+    </tr>
+    <tr>
+        <th>内容</th>
+        <td><%= @blog.content %></td>
+    </tr>
+    <tr>
+        <td><%= link_to "Edit", edit_blog_path %></td>
+        <td><%= link_to "Delete", blog_path(@blog.id), method: "delete", "data-confirm" => "削除しますか？" %></td>
+    </tr>
+</table>

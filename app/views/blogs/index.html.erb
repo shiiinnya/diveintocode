@@ -1,0 +1,18 @@
+<h2>ブログ一覧</h2>
+<table>
+    <tr>
+        <td><%= link_to "ブログ作成", new_blog_path %></td>
+        <td><%= link_to "トップへ戻る", root_path %></td>
+    </tr>
+</table>
+<% @blog.each do |f| %>
+<table>
+    <tr>
+        <th>タイトル</th>
+    </tr>
+    <tr>
+        <td><li><%= link_to f.title, blog_path(f.id) %></li></td>
+    </tr>
+</table>
+<br>
+<% end %>

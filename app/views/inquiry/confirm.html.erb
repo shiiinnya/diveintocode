@@ -1,0 +1,29 @@
+<h2>お問い合わせ確認</h2>
+<%= form_for @inquiry, :url => thanks_path do |f| %>
+<table>
+    <tr>
+        <th><%= f.label "名前" %></th>
+        <td><%= f.hidden_field :name %>
+        <%= @inquiry.name %></td>
+    </tr>
+    <tr>
+        <th><%= f.label "メールアドレス" %></th>
+        <td><%= f.hidden_field :email %>
+        <%= @inquiry.email %></td>
+    </tr>
+    <tr>
+        <th><%= f.label "生年月日" %></th>
+        <td><%= f.hidden_field :birthday %>
+        <%= @inquiry.birthday %></td>
+    </tr>
+    <tr>
+        <th><%= f.label "内容" %></th>
+        <td><%= f.hidden_field :content %>
+        <%= @inquiry.content %></td>
+    </tr>
+    <tr>
+        <td><%= f.submit "送信" %></td>
+        <td><%= f.submit "戻る", name: "back" %></td>
+    </tr>
+</table>
+<% end %>
