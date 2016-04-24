@@ -13,3 +13,10 @@
  *= require_directory .
  *= require_self
  */
+ 
+.notice {
+    color:red;
+}
+.alert {
+    color:red;
+}
