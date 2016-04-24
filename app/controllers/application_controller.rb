@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       def configure_permitted_parameters
 
       # sign_upのときに、usernameも許可する
-      devise_parameter_sanitizer.for(:sign_up) << :username
+      # devise_parameter_sanitizer.for(:sign_up) << :username
       #  account_updateのときに、usernameも許可する
       devise_parameter_sanitizer.for(:account_update) << :username
       end
