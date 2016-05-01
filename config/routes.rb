@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'users/index'
+
+  get 'users/show'
+
   devise_for :users
+  resources :users, only: [:index, :show]
   root "top#index"
   
   resources :blogs
+
   
   get "inquiry" => "inquiry#index"
   post "confirm" => "inquiry#confirm"

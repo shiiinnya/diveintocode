@@ -1,18 +1,13 @@
 <h2>ブログ一覧</h2>
-<table>
-    <tr>
-        <td><%= link_to "ブログ作成", new_blog_path %></td>
-        <td><%= link_to "トップへ戻る", root_path %></td>
-    </tr>
-</table>
-<% @blog.each do |f| %>
-<table>
-    <tr>
-        <th>タイトル</th>
-    </tr>
-    <tr>
-        <td><li><%= link_to f.title, blog_path(f.id) %></li></td>
-    </tr>
-</table>
-<br>
+
+<%= link_to "New Blog", new_blog_path %>
+<% @blog.each do |blog| %>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title"><%= link_to blog.title, blog_path(blog.id) %></h3>
+</div>
+<div class="panel-body">
+    <%= truncate(blog.content, omission: '・・・', length: 10) %><br />
+<em><%= blog.created_at %></em>
+</div>
 <% end %>
