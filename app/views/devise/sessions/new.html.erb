@@ -1,6 +1,3 @@
-<div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-3 col-md-3">
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -26,12 +23,7 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
-<div class="center-block">
-  <div>ブロックの中央よせ</div>
-</div>
+
 
 <%= render "devise/shared/links" %>
-</div><!--/.col-lg-3 col-md-3 col-sm-3 col-xs-12 -->
-</div><!--/.row -->
-</div><!--/.container --> 
 
