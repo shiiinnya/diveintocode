@@ -7,7 +7,21 @@
 <h3 class="panel-title"><%= link_to blog.title, blog_path(blog.id) %></h3>
 </div>
 <div class="panel-body">
+    
+    <p><%= profile_img(blog.user) %></p>
+    
     <%= truncate(blog.content, omission: '・・・', length: 10) %><br />
 <em><%= blog.created_at %></em>
+<p><em>投稿者:<%= blog.user.name %></em></p>
 </div>
+
+
+<% if current_user.id == blog.user_id %>
+<%= link_to "削除", blog_path(blog.id), method: "delete" %>
+<%= link_to "編集", edit_blog_path(blog.id) %>
+<% end %>
+
+
+
+
 <% end %>

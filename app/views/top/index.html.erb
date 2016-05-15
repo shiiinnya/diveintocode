@@ -2,5 +2,12 @@
   <h1>achieve</h1>
   <p>「経験０からWebエンジニアになる」</p>
   <p>achieveは、目標達成を支援するWebアプリケーションです</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">今すぐ始める</a></p>
+<% if user_signed_in? %>
+<% else %>
+    <p class="facebook"><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'navbar-link', class: "btn btn-primary btn-lg", class: "fa fa-facebook" %></p> 
+    <p class="twitter"><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: "fa fa-twitter" %></p>
+<% end %>
+    <!-- <a href="users/auth/facebook" class="btn btn-lg btn-social btn-facebook"><i calss="fa fa-facebook"></i>facebook</a> -->
+    
+    
 </div>

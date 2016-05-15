@@ -1,4 +1,7 @@
 class InquiryController < ApplicationController
+    
+    before_action :user_signed, only: [:index, :confirm, :thanks]
+    
     def index
         @inquiry = Inquiry.new
     end
@@ -25,4 +28,8 @@ class InquiryController < ApplicationController
     def params_inquiry
        params.require(:inquiry).permit(:name, :email, :birthday, :content) 
     end
+
+  def user_signed
+    redirect_to new_user_session_path unless user_signed_in?
+  end
 end
