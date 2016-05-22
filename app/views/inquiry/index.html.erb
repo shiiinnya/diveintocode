@@ -8,24 +8,33 @@
 <%= form_for @inquiry, :url => confirm_path do |f| %>
 <table>
     <tr>
-        <th><%= f.label "名前" %></th>
-        <td><%= f.text_field :name %></td>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.email_field :name, class: "form-control" %>
+         </div>
     </tr>
     <tr>
-        <th><%= f.label "メールアドレス" %></th>
-        <td><%= f.text_field :email %></td>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
     </tr>
     <tr>
-        <th><%= f.label "生年月日" %></th>
-        <td><%= f.date_select(:birthday, :start_year => 1930, :end_year => Time.now.year, :default => "1990-1-1".to_date) %></td>
+        <div class="form-group">
+            <%= f.label "生年月日" %><br />
+            <%= f.date_select(:birthday, :start_year => 1930, :end_year => Time.now.year, :default => "1990-1-1".to_date) %>
+        </div>
     </tr>
     <tr>
-        <th><%= f.label "内容" %></th>
-        <td><%= f.text_area :content %></td>
+        <div class="form-group">
+            <%= f.label "内容" %>
+            <%= f.text_area :content, class: "form-control" %>
+        </div>
     </tr>
     <tr>
-        <td><%= f.submit "確認" %></td>
+        <td><%= f.submit "確認", class: "btn btn-primary btn-lg" %></td>
     </tr>
 </table>
 
 <% end %>
+

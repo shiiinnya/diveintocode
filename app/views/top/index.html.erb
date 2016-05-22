@@ -4,10 +4,13 @@
   <p>achieveは、目標達成を支援するWebアプリケーションです</p>
 <% if user_signed_in? %>
 <% else %>
-    <p class="facebook"><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'navbar-link', class: "btn btn-primary btn-lg", class: "fa fa-facebook" %></p> 
-    <p class="twitter"><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: "fa fa-twitter" %></p>
+<p>
+    <a href="users/auth/twitter" class="btn btn-lg btn-social btn-twitter"><i class="fa fa-twitter"></i>twitter認証　</a>
+    <a href="users/auth/facebook" class="btn btn-lg btn-social btn-facebook"><i class="fa fa-facebook"></i>facebook認証</a> 
+</p>
 <% end %>
-    <!-- <a href="users/auth/facebook" class="btn btn-lg btn-social btn-facebook"><i calss="fa fa-facebook"></i>facebook</a> -->
-    <a href="users/auth/twitter" class="btn btn-lg btn-social btn-facebook"><i calss="fa fa-twitter"></i>twitter</a>
+
     
 </div>
+
+<!-- link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: "btn btn-primary btn-lg", class: "fa fa-facebook" %> -->

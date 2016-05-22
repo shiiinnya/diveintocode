@@ -22,8 +22,8 @@
         <%= @inquiry.content %></td>
     </tr>
     <tr>
-        <td><%= f.submit "送信" %></td>
-        <td><%= f.submit "戻る", name: "back" %></td>
+        <td><%= f.submit "送信", class: "btn btn-primary btn-lg" %></td>
+        <td><%= f.submit "戻る", name: "back", class: "btn btn-primary btn-lg" %></td>
     </tr>
 </table>
 <% end %>
