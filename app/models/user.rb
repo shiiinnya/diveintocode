@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
   end
   
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil) 
+     
     user = User.where(provider: auth.provider, uid: auth.uid).first
     unless user
     
-    user = User.create(name: auth.info.nickname, provider: auth.provider, uid: auth.uid, email: User.create_unique_email, password: Devise.friendly_token[0,20]) 
-    user.skip_confirmation!
-    user.save
+    user = User.create(name: auth.info.nickname, provider: auth.provider, uid: auth.uid, email: User.create_unique_email, password: Devise.friendly_token[0,20], username: "http://pbs.twimg.com/profile_images/725732109386551297/tcKXdPof_normal.jpg") 
+  
     end 
     user
   end

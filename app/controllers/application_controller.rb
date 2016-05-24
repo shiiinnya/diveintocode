@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       # devise_parameter_sanitizer.for(:sign_up) << :username
       #  account_updateのときに、usernameも許可する
       devise_parameter_sanitizer.for(:account_update) << :name
+      devise_parameter_sanitizer.for(:account_update) << :username
       end
         
     

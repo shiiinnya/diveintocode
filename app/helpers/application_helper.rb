@@ -9,7 +9,7 @@ def profile_img(user)
     img_url = "https://graph.facebook.com/#{user.uid}/picture?"
   elsif
    user.provider == 'twitter'
-     img_url = "http://furyu.nazo.cc/twicon/#{user.name}/bigger"
+     img_url = user.username
   else
    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     img_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
