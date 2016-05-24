@@ -1,11 +1,8 @@
 <% @user.each do |user| %>
 <div class="thumbnail">
   
-  <% if user.image.present? %>
-    <%= image_tag(user.image, :width => "70") %>
-  <% else %>
     <%= profile_img(user) %>
-  <% end %>
+
       
       <div class="caption">
         <h3><%= user.name %></h3>

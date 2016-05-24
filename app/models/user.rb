@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
     unless user
     
     user = User.create(name: auth.info.nickname, provider: auth.provider, uid: auth.uid, email: User.create_unique_email, password: Devise.friendly_token[0,20]) 
+    user.skip_confirmation!
+    user.save
     end 
     user
   end
