@@ -1,6 +1,6 @@
 class InquiryController < ApplicationController
     
-    before_action :user_signed, only: [:index, :confirm, :thanks]
+    # before_action :user_signed, only: [:index, :confirm, :thanks]
     
     def index
         @inquiry = Inquiry.new
@@ -18,12 +18,19 @@ class InquiryController < ApplicationController
         if params[:back]
             render :action => "index"
         elsif
-            @inquiry.save
-            render :action => "thanks"
+             @inquiry.save
+             InquiryMailer.inquiry_email(@inquiry).deliver
+             render :action => "thanks"
         else
             render :action => "thanks"
         end
     end
+    
+    def index_all
+        @inquiry = Inquiry.all
+    end
+    
+    
     private
     def params_inquiry
        params.require(:inquiry).permit(:name, :email, :birthday, :content) 

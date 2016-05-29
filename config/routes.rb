@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "inquiry" => "inquiry#index"
   post "confirm" => "inquiry#confirm"
   post "thanks" => "inquiry#thanks"
+  get "index" => "inquiry#index_all"
   
    match "*path" => "application#handle_404", via: :all
   

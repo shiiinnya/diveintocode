@@ -1,0 +1,16 @@
+<h2>お問い合わせ一覧</h2>
+
+<% @inquiry.each do |f| %>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title"><%= f.content %></h3>
+</div>
+<div class="panel-body">
+    
+
+    
+<em><%= f.created_at %></em>
+<p><em>投稿者:<%= f.name %></em></p>
+</div>
+
+<% end %>
