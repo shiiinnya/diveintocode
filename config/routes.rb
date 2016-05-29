@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post "confirm" => "inquiry#confirm"
   post "thanks" => "inquiry#thanks"
   
+   match "*path" => "application#handle_404", via: :all
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
