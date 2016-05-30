@@ -1,6 +1,9 @@
 <h2>ブログ一覧</h2>
 
 <%= link_to "New Blog", new_blog_path %>
+
+<%= will_paginate @blog %>
+
 <% @blog.each do |blog| %>
 <div class="panel panel-primary">
 <div class="panel-heading">
@@ -21,7 +24,6 @@
 <%= link_to "編集", edit_blog_path(blog.id) %>
 <% end %>
 
-
-
-
 <% end %>
+
+<%= will_paginate @blog %>

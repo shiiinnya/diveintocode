@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
     
     
     def index
-       @blog = Blog.all
+       @blog = Blog.paginate(page:params[:page])
     end
     def new
         @blog = Blog.new

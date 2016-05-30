@@ -3,13 +3,8 @@ class UsersController < ApplicationController
   before_action :user_signed, only: [:index, :show]
   
   def index
-    @user = User.all
+    @user = User.paginate(page:params[:page])
   end
-
-  def show
-    @user = User.find params[:id]
-  end
-
 
 private
   def user_params
