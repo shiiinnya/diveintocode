@@ -19,7 +19,7 @@
     <tr>
         <th><%= f.label "内容" %></th>
         <td><%= f.hidden_field :content %>
-        <%= @inquiry.content %></td>
+        <%= simple_format(@inquiry.content) %></td>
     </tr>
     <tr>
         <td><%= f.submit "送信", class: "btn btn-primary btn-lg" %></td>
