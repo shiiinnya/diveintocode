@@ -2,12 +2,14 @@
 
 <% @inquiry.each do |f| %>
 <div class="panel panel-primary">
-<div class="panel-heading">
-<h3 class="panel-title">お問い合わせ内容</h3>
+    <div class="panel-heading">
+        <h3 class="panel-title">お問い合わせ内容</h3>
+    </div>
 </div>
+
 <div class="panel-body">
-<em><%= f.created_at %></em>
-<p><em>投稿者:<%= f.name %></em></p>
+    <em><%= f.created_at %></em>
+    <p><em>投稿者:<%= f.name %></em></p>
 <p><%= simple_format(f.content) %></p>
 </div>
 
