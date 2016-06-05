@@ -17,8 +17,7 @@ class InquiryController < ApplicationController
         @inquiry = Inquiry.new(params_inquiry)
         if params[:back]
             render :action => "index"
-        elsif
-             @inquiry.save
+        elsif @inquiry.save
              InquiryMailer.inquiry_email(@inquiry).deliver
              render :action => "thanks"
         else
