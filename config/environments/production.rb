@@ -7,8 +7,8 @@ Rails.application.configure do
     :domain => "gmail.com",
     :authentication => "plain",
     :enable_starttls_auto => true,
-    :user_name => "shinshin930604@gmail.com",
-    :password =>  "dkocqcqlvmwjrwzk"
+    :user_name => ENV["GMAIL_ADDRESS"],
+    :password =>  ENV["GMAIL_PASSWORD"]
   }
   # Settings specified here will take precedence over those in config/application.rb.
 
