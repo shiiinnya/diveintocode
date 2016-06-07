@@ -9,7 +9,9 @@
         <td><%= @blog.content %></td>
     </tr>
     <tr>
+        <% if current_user.id == @blog.user_id %>
         <td><%= link_to "Edit", edit_blog_path %></td>
         <td><%= link_to "Delete", blog_path(@blog.id), method: "delete", "data-confirm" => "削除しますか？" %></td>
+        <% end %>
     </tr>
 </table>

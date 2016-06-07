@@ -5,10 +5,11 @@
 <%= will_paginate @blog %>
 
 <% @blog.each do |blog| %>
-<div class="panel panel-primary">
-<div class="panel-heading">
-<h3 class="panel-title"><%= link_to blog.title, blog_path(blog.id) %></h3>
-</div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><%= link_to blog.title, blog_path(blog.id) %></h3>
+        </div>
+    </div>
 <div class="panel-body">
     
     <p><%= profile_img(blog.user) %></p>

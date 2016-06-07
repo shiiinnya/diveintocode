@@ -37,12 +37,11 @@ class BlogsController < ApplicationController
     private
     
     def params_create
-       params.require(:blog).permit(:title, :content, :user_id)
+       params.require(:blog).permit(:title, :content)
     end
     
     def user_signed
         redirect_to new_user_session_path unless user_signed_in?
     end
-    
     
 end

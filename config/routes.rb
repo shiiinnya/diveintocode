@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   
   root "top#index"
   
-  resources :blogs
+  resources :blogs do
+    resources :comments
+  end
 
   
   get "inquiry" => "inquiry#index"
