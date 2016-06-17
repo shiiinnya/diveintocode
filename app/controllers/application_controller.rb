@@ -41,15 +41,15 @@ class ApplicationController < ActionController::Base
   
 
 
-   before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :configure_permitted_parameters, if: :devise_controller?
   
-      def configure_permitted_parameters
+      #def configure_permitted_parameters
       # sign_upのときに、usernameも許可する
       # devise_parameter_sanitizer.for(:sign_up) << :username
       #  account_updateのときに、usernameも許可する
-      devise_parameter_sanitizer.for(:account_update) << :name
-      devise_parameter_sanitizer.for(:account_update) << :username
-      end
+      #devise_parameter_sanitizer.for(:account_update) << :name
+      #devise_parameter_sanitizer.for(:account_update) << :username
+      #end
         
     
 end

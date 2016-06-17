@@ -1,0 +1,12 @@
+ <ul>
+    <% @comments.each do |comment| %>
+      <% unless comment.id.nil? %>
+        <li>User:<%= comment.user %></li>
+        <li>Comment:<%= comment.content %></li>
+        <!-- link_to 'Show', comment -->
+        <%= link_to 'Edit', edit_blog_comment_path(@blog, comment) %>
+        <%= link_to 'Destroy', blog_comment_path(@blog, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <% end %>
+  </ul>
+

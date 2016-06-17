@@ -15,3 +15,9 @@
         <% end %>
     </tr>
 </table>
+
+
+<%= render partial: 'comments/form', locals: { comment: @blog.content }  %>
+<div id="comments_area">
+<%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>

@@ -1,5 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
+    # user.rbに記載しているユーザデータを取得する処理を呼び起こす命令
+    # ログイン処理
     def facebook
        @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
        @user.skip_confirmation!

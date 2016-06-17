@@ -12,13 +12,16 @@ class BlogsController < ApplicationController
     def create
        @blog = current_user.blogs.build(params_create)
      if @blog.save
-        redirect_to blogs_path
+        redirect_to "/blogs"
      else
         render "new"
      end
     end
     def show
-       @blog = Blog.find params[:id] 
+       @blog = Blog.find params[:id]
+       @comment = @blog.comments.build
+       @comments = @blog.comments
+       # binding.pry
     end
     def edit
        @blog = current_user.blogs.find params[:id]
