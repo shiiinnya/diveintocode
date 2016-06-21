@@ -12,7 +12,13 @@ Rails.application.routes.draw do
 }
   
   
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
   
   root "top#index"
   

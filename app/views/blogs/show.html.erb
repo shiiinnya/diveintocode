@@ -17,7 +17,8 @@
 </table>
 
 
-<%= render partial: 'comments/form', locals: { comment: @blog.content }  %>
+<%= render partial: 'comments/form', locals: { comment: @comment }  %>
+
 <div id="comments_area">
-<%= render partial: 'comments/index', locals: { comments: @comments } %>
+<%= render partial: 'comments/index', locals: { comments: @blog.comments } %>
 </div>

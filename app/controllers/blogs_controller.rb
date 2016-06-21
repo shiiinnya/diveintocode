@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
     private
     
     def params_create
-       params.require(:blog).permit(:title, :content)
+       params.require(:blog).permit(:title, :content, :user_id)
     end
     
     def user_signed

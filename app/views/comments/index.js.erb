@@ -1,2 +1,3 @@
 $("#comments_area").html("<%= escape_javascript(render partial: 'comments/index', locals: { comments: @blog.comments } ) %>");
+<!-- @blog.commentsをcommentsに代入。値が入っているのはcomments。それをcomments/indexに渡す -->
 $(':text').val('')
