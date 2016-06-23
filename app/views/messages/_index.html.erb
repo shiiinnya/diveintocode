@@ -1,0 +1,9 @@
+<ul>
+    <% messages.each do |message| %>
+    <% unless message.id.nil? %> <!-- コメントがあったら下記を表示、なかったら表示しない -->
+        <li><%= current_user.name %></li>
+        <li><%= message.content %></li>
+        <% end %>
+    <% end %>
+</ul>
+

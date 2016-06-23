@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :messages
+  resources :questions
   get 'relationships/create'
 
   get 'relationships/destroy'
@@ -29,6 +31,11 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
+  
+  resources :questions do
+    resources :messages
+  end
+  
 
   
   get "inquiry" => "inquiry#index"
