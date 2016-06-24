@@ -33,6 +33,7 @@ class MessagesController < ApplicationController
         format.json { render :show, status: :created, location: @message }
         @question = @message.question
         format.js { render :index }
+        MessageMailer.message_email(@message).deliver
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
