@@ -2,7 +2,9 @@
     <% messages.each do |message| %>
     <% unless message.id.nil? %> <!-- コメントがあったら下記を表示、なかったら表示しない -->
         <li><%= current_user.name %></li>
-        <li><%= message.content %></li>
+        <li><%= simple_format(message.text) %></li>
+        <li><%= link_to 'Edit', edit_question_message_path(@question, message) %></li>
+        <li><%= link_to 'Destroy', message, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></li>
         <% end %>
     <% end %>
 </ul>

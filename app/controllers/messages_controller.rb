@@ -74,6 +74,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:question_id, :user_id, :content)
+      params.require(:message).permit(:question_id, :user_id, :content, :text)
     end
 end

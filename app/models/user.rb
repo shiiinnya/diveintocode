@@ -50,10 +50,18 @@ class User < ActiveRecord::Base
    end
   
   has_many :blogs, :dependent => :destroy
-  has_many :comments
-  has_many :messages
+  has_many :comments, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
   
   mount_uploader :image, ImageUploader
+  
+# 第一段階　中間テーブルと関係を定義する
+#has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+#has_many :reverse_relationships, foreign_key: "followed_id", class_name "Relationship", dependent: :destroy
+
+# 第三段階　相対的な参照関係を定義する
+#has_many :followed_user, through: :relationships, source: :followed
+#has_many :followes, through: :reverse_relationships, source: :follower
   
   
 end

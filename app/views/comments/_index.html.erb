@@ -1,7 +1,7 @@
  <ul>
     <% comments.each do |comment| %>
       <% unless comment.id.nil? %>
-        <li>User:<%= comment.user %></li>
+        <li>User:<%= current_user.name %></li>
         <li>Comment:<%= comment.content %></li>
         <!-- link_to 'Show', comment -->
         <%= link_to 'Edit', edit_blog_comment_path(@blog, comment) %>

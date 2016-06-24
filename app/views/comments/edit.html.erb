@@ -1,6 +1,20 @@
 <h1>Editing Comment</h1>
 
-<%= render 'form' %>
+<%= form_for(@comment) do |f| %>
+
+  <%= f.hidden_field :blog_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :content %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', blog_comment_path(@comment.blog, @comment) %> |
 <%= link_to 'Back', blog_path(@comment.blog) %>
