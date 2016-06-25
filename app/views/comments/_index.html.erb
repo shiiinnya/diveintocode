@@ -1,12 +1,16 @@
- <ul>
+<ul>
     <% comments.each do |comment| %>
       <% unless comment.id.nil? %>
-        <li>User:<%= current_user.name %></li>
-        <li>Comment:<%= comment.content %></li>
+      <p>
+        <li>User:　<%= current_user.name %></li>
+        <li>Comment:　<%= comment.content %></li><br>
         <!-- link_to 'Show', comment -->
         <%= link_to 'Edit', edit_blog_comment_path(@blog, comment) %>
         <%= link_to 'Destroy', blog_comment_path(@blog, comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <br>
       <% end %>
     <% end %>
   </ul>
+
 

@@ -1,17 +1,18 @@
 <%= will_paginate @user %>
 
-<% @user.each do |user| %>
-<div class="thumbnail">
-  
-    <%= profile_img(user) %>
+<% provide(:title, 'All users') %>
 
-      
-      <div class="caption">
-        <h3><%= user.name %></h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-</div>
+<h1>ユーザ一覧</h1>
+
+<% @user.each do |user| %>
+  <div class="thumbnail">
+    <ul class="users">
+	    <%= render user %>
+	  </ul>
+  
+  <%= profile_img(user) %>
+
+  </div>
 <% end %>
 
 <%= will_paginate @user %>

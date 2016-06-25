@@ -48,20 +48,43 @@ class User < ActiveRecord::Base
      clean_up_passwords
      result
    end
+   
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
+  end
+  
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+  
+  def friend
+    User.from_users_followed_by(self)
+  end
+  
+  def self.from_users_followed_by(user)
+	followed_user_ids = "SELECT X.id FROM (SELECT users.* FROM users INNER JOIN relationships ON users.id = relationships.followed_id WHERE relationships.follower_id = :user_id ) X INNER JOIN (SELECT users.* FROM users INNER JOIN relationships ON users.id = relationships.follower_id WHERE relationships.followed_id = :user_id ) Y ON X.id = Y.id"
+	where("id IN (#{followed_user_ids})", user_id: user.id)
+  end
+   
   
   has_many :blogs, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :messages, :dependent => :destroy
+  has_many :questions, :dependent => :destroy 
   
   mount_uploader :image, ImageUploader
   
 # 第一段階　中間テーブルと関係を定義する
-#has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-#has_many :reverse_relationships, foreign_key: "followed_id", class_name "Relationship", dependent: :destroy
+has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
 
 # 第三段階　相対的な参照関係を定義する
-#has_many :followed_user, through: :relationships, source: :followed
-#has_many :followes, through: :reverse_relationships, source: :follower
+has_many :followed_user, through: :relationships, source: :followed
+has_many :followes, through: :reverse_relationships, source: :follower
   
   
 end

@@ -23,3 +23,12 @@ end
     content = "内容#{n+1}"
 Blog.create!(title: title, content: content, user_id: rand_id)
 end
+
+100.times do |n|
+User.create(
+name: "Test Diver#{n}",
+email: "diveintocode#{n}@example.com",
+password: "iwillbeanengineer",
+uid: "#{n}"
+)
+end

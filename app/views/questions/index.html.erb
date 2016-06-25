@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Questions</h1>
 
 <table>
@@ -20,9 +18,13 @@
         <td><%= question.content %></td>
         <td><%= question.category %></td>
         <td><%= question.language %></td>
+        
+        <% if current_user.id == question.user_id %>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>

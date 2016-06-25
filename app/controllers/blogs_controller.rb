@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
        @blog = Blog.paginate(page:params[:page])
     end
     def new
-        @blog = Blog.new
+        @blog = current_user.blogs.build
     end
     def create
        @blog = current_user.blogs.build(params_create)
@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
      end
     end
     def show
-       @blog = Blog.find params[:id]
+       @blog = current_user.blogs.find params[:id]
        @comment = @blog.comments.build
        @comments = @blog.comments
        # binding.pry

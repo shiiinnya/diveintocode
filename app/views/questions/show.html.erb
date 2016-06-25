@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @question.title %>
@@ -20,7 +18,9 @@
   <%= @question.language %>
 </p>
 
+<% if current_user.id == @question.user_id %>
 <%= link_to 'Edit', edit_question_path(@question) %> |
+<% end %>
 <%= link_to 'Back', questions_path %>
 
 <%= render partial: 'messages/form', locals: { message: @message } %>

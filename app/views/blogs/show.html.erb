@@ -1,20 +1,22 @@
+<div class="container text-center">
 <h2>記事詳細</h2>
-<table>
-    <tr>
-        <th>タイトル</th>
-        <td><%= @blog.title %></td>
-    </tr>
-    <tr>
-        <th>内容</th>
-        <td><%= @blog.content %></td>
-    </tr>
-    <tr>
+    <p>
+        <h5>タイトル</h5>
+        <%= @blog.title %>
+    </p>
+
+    <p>
+        <h5>内容</h5>
+        <%= @blog.content %>
+    </p>
         <% if current_user.id == @blog.user_id %>
-        <td><%= link_to "Edit", edit_blog_path %></td>
-        <td><%= link_to "Delete", blog_path(@blog.id), method: "delete", "data-confirm" => "削除しますか？" %></td>
+    <p>
+        <%= link_to "Edit", edit_blog_path %>
+        <%= link_to "Delete", blog_path(@blog.id), method: "delete", "data-confirm" => "削除しますか？" %>
+    </p>
         <% end %>
-    </tr>
-</table>
+</div>
+
 
 
 <%= render partial: 'comments/form', locals: { comment: @comment }  %>
